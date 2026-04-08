@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>My Portfolio</h1>
+  <button onclick="toggleDarkMode()">🌙</button>
+</header>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#achievements">Achievements</a>
+  <a href="#projects">Projects</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="home">
+  <img src="images/profile.jpg" class="profile">
+  <h2>Your Name</h2>
+  <p>Hello! I am a student passionate about technology.</p>
+</section>
+
+<section id="about">
+  <h2>About Me</h2>
+  <p><b>Education:</b> Your college info</p>
+  <p><b>Interests:</b> Coding, AI, Design</p>
+  <p><b>Goals:</b> Become a software engineer</p>
+  <p><b>Strengths:</b> Problem solving, teamwork</p>
+</section>
+
+<section id="achievements">
+  <h2>Achievements</h2>
+  <div class="card">
+    <h3>AI4A Project</h3>
+    <p>Description of your AI project.</p>
+  </div>
+  <div class="card">
+    <h3>Coursera Certificate</h3>
+    <p>Completed Python course.</p>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="card">
+    <h3>Portfolio Website</h3>
+    <p>A personal website using HTML, CSS, JS.</p>
+  </div>
+</section>
+
+<section id="gallery">
+  <h2>Gallery</h2>
+  <img src="images/cert1.jpg" onclick="openImage(this)">
+  <img src="images/cert2.jpg" onclick="openImage(this)">
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: your@email.com</p>
+  <p>Phone: 1234567890</p>
+  <p>GitHub: github.com/yourname</p>
+</section>
+
+<!-- Image Popup -->
+<div id="popup" onclick="closeImage()">
+  <img id="popup-img">
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

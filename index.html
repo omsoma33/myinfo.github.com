@@ -1,78 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>My Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+        nav .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: #000; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { text-decoration: none; color: #333; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: #6366f1; }
+        
+        /* Hero */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: white;
+            color: #333;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .cta-button:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(0,0,0,0.3); }
+        
+        /* Sections */
+        section { padding: 100px 0; }
+        .section-title {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            font-weight: 700;
+        }
+        
+        /* About */
+        .about { background: #f8fafc; }
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .about-text h3 { font-size: 2rem; margin-bottom: 1rem; color: #1e293b; }
+        .about-text p { font-size: 1.1rem; color: #64748b; margin-bottom: 1.5rem; }
+        
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+        }
+        .project-image {
+            height: 200px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: white;
+        }
+        .project-info {
+            padding: 1.5rem;
+        }
+        .project-info h4 { font-size: 1.3rem; margin-bottom: 0.5rem; }
+        .project-info p { color: #64748b; margin-bottom: 1rem; }
+        .project-links { display: flex; gap: 1rem; }
+        .project-links a {
+            padding: 0.5rem 1rem;
+            background: #6366f1;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 0.9rem;
+        }
+        
+        /* Contact */
+        .contact { background: #1e293b; color: white; text-align: center; }
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        .contact-links a {
+            color: white;
+            font-size: 1.2rem;
+            transition: opacity 0.3s;
+        }
+        .contact-links a:hover { opacity: 0.7; }
+        
+        /* Footer */
+        footer {
+            background: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .about-content { grid-template-columns: 1fr; text-align: center; }
+        }
+    </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">YourName</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-<header>
-  <h1>My Portfolio</h1>
-  <button onclick="toggleDarkMode()">🌙</button>
-</header>
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Hi, I'm <span style="color: #fff;">Your Name</span></h1>
+                <p>I build amazing digital experiences</p>
+                <a href="#projects" class="cta-button">See My Work</a>
+            </div>
+        </div>
+    </section>
 
-<nav>
-  <a href="#home">Home</a>
-  <a href="#about">About</a>
-  <a href="#achievements">Achievements</a>
-  <a href="#projects">Projects</a>
-  <a href="#gallery">Gallery</a>
-  <a href="#contact">Contact</a>
-</nav>
+    <!-- About -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Frontend Developer & Designer</h3>
+                    <p>I'm passionate about creating pixel-perfect websites that not only look great but also provide exceptional user experiences. With 5+ years of experience in modern web technologies.</p>
+                    <p>🔹 HTML, CSS, JavaScript<br>🔹 React, Next.js, Tailwind<br>🔹 Figma, Adobe Suite</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="width: 250px; height: 250px; margin: 0 auto; background: linear-gradient(45deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 4rem; color: white;">👨‍💻</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section id="home">
-  <img src="images/profile.jpg" class="profile">
-  <h2>Your Name</h2>
-  <p>Hello! I am a student passionate about technology.</p>
-</section>
+    <!-- Projects -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">E-Commerce Site</div>
+                    <div class="project-info">
+                        <h4>Modern E-Commerce Platform</h4>
+                        <p>Full-stack e-commerce solution with React, Node.js, and Stripe integration.</p>
+                        <div class="project-links">
+                            <a href="#">Live Demo</a>
+                            <a href="#">Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">Task Manager</div>
+                    <div class="project-info">
+                        <h4>Productivity App</h4>
+                        <p>Real-time task management app built with Next.js and Firebase.</p>
+                        <div class="project-links">
+                            <a href="#">Live Demo</a>
+                            <a href="#">Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">Portfolio</div>
+                    <div class="project-info">
+                        <h4>This Portfolio</h4>
+                        <p>Responsive portfolio website built with vanilla HTML/CSS/JS.</p>
+                        <div class="project-links">
+                            <a href="#">Live Demo</a>
+                            <a href="#">Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section id="about">
-  <h2>About Me</h2>
-  <p><b>Education:</b> Your college info</p>
-  <p><b>Interests:</b> Coding, AI, Design</p>
-  <p><b>Goals:</b> Become a software engineer</p>
-  <p><b>Strengths:</b> Problem solving, teamwork</p>
-</section>
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Get In Touch</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Let's work together on your next project!</p>
+            <div class="contact-links">
+                <a href="mailto:your.email@gmail.com">📧 Email</a>
+                <a href="https://linkedin.com/in/yourprofile">💼 LinkedIn</a>
+                <a href="https://github.com/yourusername">🐙 GitHub</a>
+                <a href="https://twitter.com/yourhandle">🐦 Twitter</a>
+            </div>
+        </div>
+    </section>
 
-<section id="achievements">
-  <h2>Achievements</h2>
-  <div class="card">
-    <h3>AI4A Project</h3>
-    <p>Description of your AI project.</p>
-  </div>
-  <div class="card">
-    <h3>Coursera Certificate</h3>
-    <p>Completed Python course.</p>
-  </div>
-</section>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Your Name. Built with ❤️</p>
+        </div>
+    </footer>
 
-<section id="projects">
-  <h2>Projects</h2>
-  <div class="card">
-    <h3>Portfolio Website</h3>
-    <p>A personal website using HTML, CSS, JS.</p>
-  </div>
-</section>
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
 
-<section id="gallery">
-  <h2>Gallery</h2>
-  <img src="images/cert1.jpg" onclick="openImage(this)">
-  <img src="images/cert2.jpg" onclick="openImage(this)">
-</section>
-
-<section id="contact">
-  <h2>Contact</h2>
-  <p>Email: your@email.com</p>
-  <p>Phone: 1234567890</p>
-  <p>GitHub: github.com/yourname</p>
-</section>
-
-<!-- Image Popup -->
-<div id="popup" onclick="closeImage()">
-  <img id="popup-img">
-</div>
-
-<script src="script.js"></script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(255,255,255,0.98)';
+            } else {
+                nav.style.background = 'rgba(255,255,255,0.95)';
+            }
+        });
+    </script>
 </body>
 </html>
